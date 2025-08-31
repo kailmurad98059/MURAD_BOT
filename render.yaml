@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: telegram-courses-bot
+    env: python
+    plan: starter
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python telegram_courses_bot.py"
+    envVars:
+      - key: BOT_TOKEN
+        sync: false   # حطه يدويًا من لوحة Render (سِرّي)
+      - key: ADMIN_ID
+        value: "5774252730"
+      - key: WEBHOOK_URL
+        value: "https://your-app.onrender.com"  # عدّلها بعد إنشاء الخدمة
+      - key: WEBHOOK_SECRET
+        value: "secret-path"  # مسار سري مثل: x9Abc_123
+    autoDeploy: true
