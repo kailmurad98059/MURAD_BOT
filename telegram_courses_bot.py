@@ -63,8 +63,13 @@ from telegram.ext import (
 # إعدادات المشرف والتوكن
 # =====================
 # طُلب إدراج التوكن والآيدي صراحة — مع ذلك نوفّر إمكانية override عبر ENV إن رغبت لاحقًا.
-ADMIN_ID = int(os.getenv("ADMIN_ID", "5774252730"))
-BOT_TOKEN = os.getenv("BOT_TOKEN", "8018747428:AAEkUmYZDimNuFp4pjnbpfTTSmwU-qyVIfM")
+#ADMIN_ID = int(os.getenv("ADMIN_ID", "5774252730"))
+ADMIN_ID = int(os.environ.get("ADMIN_ID", "5774252730"))
+
+#BOT_TOKEN = os.getenv("BOT_TOKEN", "8018747428:AAEkUmYZDimNuFp4pjnbpfTTSmwU-qyVIfM")
+# بدّل السطر في الكود إلى:
+BOT_TOKEN = os.environ["BOT_TOKEN"]  # بدون قيمة افتراضية
+
 
 # إعدادات الويب هوك لبيئات مثل Render
 WEBHOOK_URL = os.getenv("WEBHOOK_URL", "")  # مثال: https://your-app.onrender.com/
